@@ -5,10 +5,18 @@ const app = express();
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const cors = require('cors');
+// Configuración de CORS para permitir el despliegue
+const corsOptions = {
+  origin: [
+    '*'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 const spotifyRoutes = require('./routes/spotify');
 const historyRoutes = require('./routes/history');
 
-app.use(cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
