@@ -26,38 +26,59 @@ export default function Register() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: 400, margin: "40px auto" }}>
-      <h2 className="text-center mb-4">Registro</h2>
-      <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
-        <input
-          type="text"
-          placeholder="Nombre"
-          value={name}
-          onChange={e => setName(e.target.value)}
-          required
-          className="form-control"
-        />
-        <input
-          type="email"
-          placeholder="Correo"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-          required
-          className="form-control"
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          required
-          className="form-control"
-        />
-        <button type="submit" className="btn btn-success fw-bold">Registrarse</button>
-        <Link to="/login" className="text-success text-center text-decoration-none">¿Ya tienes cuenta? Inicia sesión</Link>
-        {error && <p className="text-danger text-center">{error}</p>}
-        {success && <p className="text-success text-center">¡Registro exitoso! Redirigiendo...</p>}
-      </form>
+    <div className="container-fluid min-vh-100 d-flex justify-content-center align-items-center" style={{ background: "linear-gradient(135deg, #7b7be0 0%, #a084ee 100%)" }}>
+      <div className="card shadow col-12 col-sm-8 col-md-4 p-4">
+        <div className="card-body">
+          <h2 className="text-center mb-2">
+            <span role="img" aria-label="user">📝</span> Registro
+          </h2>
+          <p className="text-center text-muted mb-4">Crea tu cuenta</p>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group mb-3">
+              <label className="fw-bold mb-1">Nombre:</label>
+              <input
+                type="text"
+                placeholder="Nombre"
+                value={name}
+                onChange={e => setName(e.target.value)}
+                required
+                className="form-control"
+              />
+            </div>
+            <div className="form-group mb-3">
+              <label className="fw-bold mb-1">Correo:</label>
+              <input
+                type="email"
+                placeholder="Correo"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
+                className="form-control"
+              />
+            </div>
+            <div className="form-group mb-3">
+              <label className="fw-bold mb-1">Contraseña:</label>
+              <input
+                type="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+                className="form-control"
+              />
+            </div>
+            <button type="submit" className="btn btn-success w-100 fw-bold mb-3" style={{ background: "linear-gradient(90deg, #7b7be0 0%, #a084ee 100%)", border: "none" }}>
+              Registrarse
+            </button>
+            {error && <p className="text-danger text-center">{error}</p>}
+            {success && <p className="text-success text-center">¡Registro exitoso! Redirigiendo...</p>}
+            <hr />
+            <div className="text-center">
+              ¿Ya tienes cuenta? <Link to="/login">Inicia sesión</Link>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 } 
